@@ -1,0 +1,17 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    prometheus-client (0.7.1)
+      quantile (~> 0.2.0)
+    quantile (0.2.0)
+    rack (2.0.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  prometheus-client
+  rack
+
+BUNDLED WITH
+   1.15.4
