@@ -7,6 +7,10 @@ module PrometheusGCPSSLCerts
   class Collector
     module Registry
       module GCP
+        def self.certificate_cache
+          @cache ||= certificates
+        end
+
         def self.certificates
           json = `gcloud --format json compute ssl-certificates list`
 
@@ -23,8 +27,6 @@ module PrometheusGCPSSLCerts
         end
 
         def self.defunct_certificates(registry)
-          certificate_cache = certificates
-
           registry.metrics.flat_map do |metric|
             next unless metric.name == :gcp_ssl_cert_expiration
 

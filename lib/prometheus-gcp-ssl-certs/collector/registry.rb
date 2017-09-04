@@ -11,7 +11,7 @@ module PrometheusGCPSSLCerts
       end
 
       def self.refresh_certificates(gauge)
-        GCP.certificates.each do |host|
+        GCP.certificate_cache.each do |host|
           gauge.set({ "certificate_name": host }, SSL.valid_until(host))
         end
       end
