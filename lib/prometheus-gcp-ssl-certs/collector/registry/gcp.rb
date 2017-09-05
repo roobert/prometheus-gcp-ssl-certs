@@ -11,6 +11,10 @@ module PrometheusGCPSSLCerts
           @cache ||= certificates
         end
 
+        def self.cache_clear
+          @cache = nil
+        end
+
         def self.certificates
           json = `gcloud --format json compute ssl-certificates list`
 

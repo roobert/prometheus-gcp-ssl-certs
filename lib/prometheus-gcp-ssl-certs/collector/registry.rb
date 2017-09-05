@@ -6,6 +6,7 @@ module PrometheusGCPSSLCerts
       def self.update(registry, gauge)
         refresh_certificates(gauge)
         purge_defunct_certificates(registry, gauge)
+        GCP.cache_clear
 
         [ registry, gauge ]
       end
