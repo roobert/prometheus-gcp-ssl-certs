@@ -16,8 +16,6 @@ module PrometheusGCPSSLCerts
       @app      = app
       @registry = Prometheus::Client.registry
       @gauge    = @registry.gauge(
-        # FIXME: double check that this is actually what we're reporting on 
-        # FIXME: why did "test" have a timestamp?
         :gcp_ssl_cert_expiration,
         'GCP SSL certificate - expiration date (seconds since epoch)',
       )
