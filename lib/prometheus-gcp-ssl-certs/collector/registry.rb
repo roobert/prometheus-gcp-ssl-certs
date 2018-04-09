@@ -31,7 +31,7 @@ module PrometheusGCPSSLCerts
       end
 
       def self.refresh_certificates(gauge)
-        GKE.certificate_cache.each do |host|
+        GCP.certificate_cache.each do |host|
           labels, valid_until = lookup(host)
           gauge.set(labels, valid_until)
         end
